@@ -1,0 +1,10 @@
+const express = require('express');
+const passport = require('passport');
+const Routes = express.Router();
+const adminController = require('../controller/adminController');
+Routes.post('/insertApi',adminController.insertApi);
+Routes.get('/viewApi',passport.authenticate('jwt', { session: false }),adminController.viewApi);
+Routes.delete('/deleteApi',adminController.deleteApi);
+Routes.put('/updateApi',adminController.updateApi);
+Routes.post('/loginApi',adminController.loginApi);
+module.exports = Routes;
